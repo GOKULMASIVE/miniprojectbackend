@@ -25,7 +25,7 @@ app.use(cors());
 
 
 app.get("/", function (request, response) {
-  response.send("🙋‍♂️, 🌏 🎊✨🤩");
+  response.send("");
 });
 
 // app.use("/hall",);
