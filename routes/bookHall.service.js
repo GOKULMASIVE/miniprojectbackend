@@ -1,0 +1,16 @@
+import { client } from "../index.js";
+
+export async function createHallBookingData(data) {
+  return await client
+    .db("BookingDetails")
+    .collection("halldetails")
+    .insertOne(data);
+}
+
+export async function getAllHallBookingData() {
+  return await client
+    .db("BookingDetails")
+    .collection("halldetails")
+    .find()
+    .toArray();
+}
