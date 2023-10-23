@@ -11,6 +11,14 @@ export async function getAllHallBookingData() {
   return await client
     .db("BookingDetails")
     .collection("halldetails")
-    .find()
-    .toArray();
+    .find().toArray()
+   
 }
+
+export async function getHallBookingById(id) {
+  return await client
+    .db("BookingDetails")
+    .collection("halldetails")
+    .findOne({ _id: id });
+}
+
