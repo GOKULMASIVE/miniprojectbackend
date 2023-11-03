@@ -11,3 +11,7 @@ export async function getLabDataById(id) {
 export async function createLabData(data){
     return await client.db("miniProject").collection("labData").insertMany(data);
 }
+
+export async function DeleteAll(){
+  return await client.db("miniProject").collection("labData").deleteMany();
+}

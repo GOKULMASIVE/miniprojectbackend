@@ -14,3 +14,11 @@ export async function getHallDataById(id) {
 export async function createHallData(data) {
   return await client.db("miniProject").collection("hallData").insertMany(data);
 }
+
+export async function DeleteAll() {
+  return await client.db("miniProject").collection("hallData").deleteMany();
+}
+
+export async function updateHall(id,data){
+  return await client.db("miniProject").collection("hallData").updateOne({_id:id},{$set:data});
+}

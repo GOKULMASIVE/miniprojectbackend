@@ -22,3 +22,4 @@ export async function getHallBookingById(id) {
     .findOne({ _id: id });
 }
 
+

@@ -7,7 +7,7 @@ import userRouter from './routes/users.route.js'
 import BookinglabRouter from './routes/bookLab.route.js';
 import hallRouter from './routes/hall.route.js';
 import BookinghallRouter from './routes/bookHall.route.js';
-import HallAfterRouter from './routes/bookHallAfter.route.js'
+
 dotenv.config();
 
 const app = express();

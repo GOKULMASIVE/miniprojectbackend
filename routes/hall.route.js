@@ -1,6 +1,6 @@
 import express from "express";
 import { ObjectId } from "mongodb";
-import { getAllHallData, getHallDataById, createHallData } from "./hall.service.js";
+import { getAllHallData, getHallDataById, createHallData,DeleteAll ,updateHall} from "./hall.service.js";
 
 const router = express.Router();
 
@@ -24,5 +24,20 @@ router.post("/", async function (req, res) {
   const result = await createHallData(data);
   res.send(result);
 });
+
+router.delete("/", async function (req, res) {
+  const del = await DeleteAll();
+  res.send(del);
+});
+
+router.put("/:id",async function(req,res){
+  const {id}=req.params;
+  console.log(id);
+  const data=req.body;
+  const obj_id=new ObjectId(id);
+  const result=await updateHall(obj_id,data);
+  res.send(result);
+})
+
 
 export default router;
