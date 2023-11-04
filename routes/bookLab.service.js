@@ -8,3 +8,10 @@ export async function createLabBookingData(data){
 export async function getAllLabBookingData(){
     return await client.db("BookingDetails").collection("labdetails").find().toArray();
 }
+
+export async function deleteLabBooking() {
+  return await client
+    .db("BookingDetails")
+    .collection("labdetails")
+    .deleteMany();
+}

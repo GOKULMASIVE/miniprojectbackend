@@ -22,4 +22,7 @@ export async function getHallBookingById(id) {
     .findOne({ _id: id });
 }
 
+export async function deleteHallBooking(){
+  return await client.db("BookingDetails").collection("halldetails").deleteMany();
+}
 

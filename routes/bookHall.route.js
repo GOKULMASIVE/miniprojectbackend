@@ -4,6 +4,7 @@ import {
   getAllHallBookingData,
   createHallBookingData,
   getHallBookingById,
+  deleteHallBooking
 } from "./bookHall.service.js";
 
 const router = express.Router();
@@ -28,4 +29,8 @@ router.post("/", async function (req, res) {
   res.send(result);
 });
 
+router.delete("/",async function(req,res){
+  const result=await deleteHallBooking();
+  res.send(result);
+})
 export default router;

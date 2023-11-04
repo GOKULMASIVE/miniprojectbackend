@@ -3,6 +3,7 @@ import { ObjectId } from "mongodb";
 import {
   getAllLabBookingData,
   createLabBookingData,
+  deleteLabBooking
 } from "./bookLab.service.js";
 
 const router = express.Router();
@@ -22,4 +23,8 @@ router.post("/", async function (req, res) {
   res.send(result);
 });
 
+router.delete("/", async function (req, res) {
+  const result = await deleteLabBooking();
+  res.send(result);
+});
 export default router;
