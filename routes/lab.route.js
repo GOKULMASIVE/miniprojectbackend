@@ -1,6 +1,6 @@
 import express from 'express';
 import { ObjectId } from 'mongodb';
-import { getAllLabData, getLabDataById, createLabData ,DeleteAll} from "./lab.service.js";
+import { getAllLabData, getLabDataById, createLabData ,DeleteAll,updateLab} from "./lab.service.js";
 
 
 
@@ -30,7 +30,17 @@ router.post("/",async function(req,res){
 
 router.delete("/",async function(req,res){
     const del=await DeleteAll();
+    res.send(del);
 })
+
+router.put("/:id", async function (req, res) {
+  const { id } = req.params;
+  console.log(id);
+  const data = req.body;
+  const obj_id = new ObjectId(id);
+  const result = await updateLab(obj_id, data);
+  res.send(result);
+});
 
 
 

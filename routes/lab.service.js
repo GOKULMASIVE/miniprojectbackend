@@ -15,3 +15,10 @@ export async function createLabData(data){
 export async function DeleteAll(){
   return await client.db("miniProject").collection("labData").deleteMany();
 }
+
+export async function updateLab(id, data) {
+  return await client
+    .db("miniProject")
+    .collection("labData")
+    .updateOne({ _id: id }, { $set: data });
+}
