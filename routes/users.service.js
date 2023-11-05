@@ -13,13 +13,13 @@ import bcrypt from "bcrypt";
 
 export async function userSignup(data) {
   // console.log("data:", data);
-  const { userName, password } = data;
+  const { userName, password ,Email} = data;
   const pass = await getHashPassword(password);
-  return await client.db("BookingDetails").collection("users").insertOne({ userName, password:pass });
+  return await client.db("BookingDetails").collection("users").insertOne({ userName, Email,password:pass });
 }
 
-export async function getUserByName(userName) {
-  return await client.db("BookingDetails").collection("users").findOne({ userName: userName });
+export async function getUserByEmail(mail) {
+  return await client.db("BookingDetails").collection("users").findOne({ Email: mail });
 }
 
 export async function getUsers() {
@@ -27,6 +27,9 @@ export async function getUsers() {
   return await client.db("BookingDetails").collection("users").find().toArray();
 }
 
+export async function DeleteAll(){
+  return await client.db("BookingDetails").collection("users").deleteMany();
+}
 
 
 
