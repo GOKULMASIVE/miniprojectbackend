@@ -32,7 +32,7 @@ app.get("/", function (request, response) {
 app.use('/lab',labRouter);
 app.use("/hall",hallRouter);
 app.use("/users",userRouter);
-app.use("/bookingLab",BookinglabRouter);
+app.use("/bookinglab",BookinglabRouter);
 app.use("/bookinghall",BookinghallRouter)
 
 
