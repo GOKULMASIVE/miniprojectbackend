@@ -25,9 +25,11 @@ router.post("/login", async function (req, res) {
   if (user) {
     const storedPassword = user.password;
     const isPaswwordMatch = await bcrypt.compare(password, storedPassword);
-    isPaswwordMatch?res.send("Login Successfully"):res.send("Invalid user");
+    isPaswwordMatch
+      ? res.status(200).send("Loging successfully")
+      : res.status(400).send("Invalid user");
   }
-}); 
+});   
 
 router.get("/", async function (req, res) {
   // console.log(req.query);
