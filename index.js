@@ -7,6 +7,7 @@ import userRouter from './routes/users.route.js'
 import BookinglabRouter from './routes/bookLab.route.js';
 import hallRouter from './routes/hall.route.js';
 import BookinghallRouter from './routes/bookHall.route.js';
+import AdminRouter from './routes/admin.route.js'
 
 dotenv.config();
 
@@ -34,6 +35,6 @@ app.use("/hall",hallRouter);
 app.use("/users",userRouter);
 app.use("/bookinglab",BookinglabRouter);
 app.use("/bookinghall",BookinghallRouter)
-
+app.use("/admin",AdminRouter)
 
 app.listen(PORT, () => console.log(`The server started in: ${PORT} ✨✨`));
