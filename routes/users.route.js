@@ -28,7 +28,7 @@ router.post("/login", async function (req, res) {
     const isPaswwordMatch = await bcrypt.compare(password, storedPassword);
     isPaswwordMatch
       ? res.status(200).send("Loging successfully")
-      : res.status(400).send("Invalid user");   
+      : res.status(401).send("Invalid user");   
   }else{
     res.status(400).send("Invalid user")
   }
