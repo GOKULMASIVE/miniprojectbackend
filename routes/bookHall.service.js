@@ -26,3 +26,10 @@ export async function deleteHallBooking(){
   return await client.db("BookingDetails").collection("halldetails").deleteMany();
 }
 
+export async function DeleteHall(id) {
+  return await client
+    .db("BookingDetails")
+    .collection("halldetails")
+    .deleteOne({ _id: id });
+}
+

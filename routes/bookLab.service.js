@@ -15,3 +15,7 @@ export async function deleteLabBooking() {
     .collection("labdetails")
     .deleteMany();
 }
+
+export async function DeleteLab(id) {
+  return await client.db("BookingDetails").collection("labdetails").deleteOne({ _id: id });
+}
