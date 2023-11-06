@@ -1,6 +1,6 @@
 import express from "express";
 import bcrypt from "bcrypt";
-import { userSignup, getUsers, getUserByEmail ,DeleteAll} from "./users.service.js";
+import { userSignup, getUsers, getUserByEmail ,DeleteAll,getUserByName} from "./users.service.js";
 import jwt from "jsonwebtoken";
 
 const router = express.Router();
@@ -45,5 +45,11 @@ router.delete("/",async function (req,res){
   res.send(result)
 })
 
+router.get("/:id",async function(req,res){
+  const {id}=req.params;
+  
+  const result=await getUserByName(id);
+  res.send(result);
+})
 
 export default router;

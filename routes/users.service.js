@@ -32,5 +32,7 @@ export async function DeleteAll(){
 }
 
 
-
+export async function getUserByName(id){
+  return await client.db("BookingDetails").collection("users").findOne({Email:id})
+}
 
