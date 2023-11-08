@@ -40,3 +40,7 @@ export async function updateAdmin(id, data) {
     .collection("admin")
     .updateOne({Email: id }, { $set: data });
 }
+
+export async function getOneUser(id) {
+  return await client.db("BookingDetails").collection("admin").findOne({Email:id});
+}

@@ -5,7 +5,8 @@ import {
   getUsers,
   getUserByEmail,
   DeleteAll,
-  updateAdmin
+  updateAdmin,
+  getOneUser
 } from "./admin.service.js";
 import jwt from "jsonwebtoken";
 import { ObjectId } from "mongodb";
@@ -46,6 +47,13 @@ router.get("/", async function (req, res) {
   const result = await getUsers();
   res.send(result);
 });
+
+router.get("/:id", async function (req, res) {
+  const {id}=req.params
+  const result = await getOneUser(id);
+  res.send(result);
+});
+
 
 router.delete("/", async function (req, res) {
   const result = await DeleteAll();
