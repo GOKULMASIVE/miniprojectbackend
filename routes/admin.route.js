@@ -8,6 +8,7 @@ import {
   updateAdmin
 } from "./admin.service.js";
 import jwt from "jsonwebtoken";
+import { ObjectId } from "mongodb";
 
 const router = express.Router();
 
@@ -53,7 +54,7 @@ router.delete("/", async function (req, res) {
 
 router.put("/:id", async function (req, res) {
   const { id } = req.params;
-  // console.log(id);
+  const data=req.body;
   const obj_id = new ObjectId(id);
   const result = await updateAdmin(obj_id, data);
   res.send(result);
