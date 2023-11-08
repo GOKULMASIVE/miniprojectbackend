@@ -38,5 +38,5 @@ export async function updateAdmin(id, data) {
   return await client
     .db("BookingDetails")
     .collection("admin")
-    .updateOne({ _id: id }, { $set: data });
+    .updateOne({Email: id }, { $set: data });
 }
