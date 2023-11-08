@@ -32,7 +32,7 @@ router.delete("/", async function (req, res) {
 
 router.put("/:id",async function(req,res){
   const {id}=req.params;
-  console.log(id);
+  // console.log(id);
   const data=req.body;
   const obj_id=new ObjectId(id);
   const result=await updateHall(obj_id,data);

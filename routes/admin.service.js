@@ -33,3 +33,10 @@ export async function getUsers() {
 export async function DeleteAll() {
   return await client.db("BookingDetails").collection("admin").deleteMany();
 }
+
+export async function updateAdmin(id, data) {
+  return await client
+    .db("BookingDetails")
+    .collection("admin")
+    .updateOne({ _id: id }, { $set: data });
+}
