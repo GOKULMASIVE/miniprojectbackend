@@ -48,8 +48,12 @@ router.delete("/",async function (req,res){
 router.get("/:id",async function(req,res){
   const {id}=req.params;
   
-  const result=await getUserByName(id);
-  res.send(result);
+  const result=await getUserByName(id); 
+  if(result){
+    res.status(200).send(result);
+  }else{
+    res.status(400).send("Invalid user")
+  }
 })
 
 export default router;
